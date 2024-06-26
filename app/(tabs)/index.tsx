@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Platform, Text ,View, TextInput,Button, Alert} from 'react-native';
 import { useState } from 'react';
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Vista } from '@/components/Vista';
+import { Pantalla } from '@/components/Pantalla';
 
 export default function HomeScreen() {
   const [name, setName] = useState('');
@@ -17,7 +17,21 @@ export default function HomeScreen() {
     Alert.alert('Formulario enviado', `Nombre: ${name}\nCorreo electrónico: ${email}`);
     // Aquí podrías enviar los datos a un servidor o realizar otras acciones
   };
+  // function HomeScreen2() {
+  //   return (
+  //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+  //       <Text>Home Screen</Text>
+  //     </View>
+  //   );
+  // }
+  const Stack = createNativeStackNavigator();
   return (
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="Home">
+    //     <Stack.Screen name="Home" component={HomeScreen2} />
+       
+    //   </Stack.Navigator>
+    // </NavigationContainer>
     <View style={styles.container}>
     <Text style={styles.label}>Nombre:</Text>
     <TextInput
